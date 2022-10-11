@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { fetchAccount, isReady, Mina, PublicKey, setGraphqlEndpoint } from "snarkyjs";
 import { SimpleZkapp_ } from "zkapp-snarkyjs";
+import { Add } from "zkproject";
 
 function App() {
   useEffect(()=>{
@@ -11,13 +12,15 @@ function App() {
       setGraphqlEndpoint(graphqlEndpoint);
       let Berkeley = Mina.BerkeleyQANet(graphqlEndpoint);
       Mina.setActiveInstance(Berkeley);
-      const zkAppAddress = 'B62qiY3PVYcjdDfQehgSJDgKUsGbg5WwkEeD26Jb9ZxExRQ4xjW1AMg'
+      const zkAppAddress = 'B62qkz3eEeD5XHDEMLubSo4YQ6Xejs6tnh6sx3CYtGCXEEA1DaNc4cq'
       let {account,error} = await fetchAccount({ publicKey: PublicKey.fromBase58(zkAppAddress)})
       console.log(account);
-      await SimpleZkapp_.compile()
+      await Add.compile()
+      // await SimpleZkapp_.compile()
       try{
-        const contract = new SimpleZkapp_(PublicKey.fromBase58(zkAppAddress))
-      let val = contract.value.get()
+      const contract = new Add()
+      let val = contract.num.get()
+      console.log("val",val);
       console.log(`Found deployed zkapp, with state ${val.toBase58()}`);
       }catch(error){
         console.log(error);
@@ -27,7 +30,7 @@ function App() {
   },[])
   return (
     <div className="App">
-      <h1>React app helo</h1>
+      <h1>React app hello</h1>
     </div>
   );
 }
