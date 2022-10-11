@@ -12,7 +12,7 @@ function App() {
   }
   const createTransaction = async(contract) =>{
     let feePayer = PrivateKey.fromBase58('EKEeaxiDz6utkQBKApPXLd6z3XsY9Nz1kgygKLcDVb9tN4HbY89U')
-        let txn = await Mina.transaction({feePayer,fee:"0.1"}, () => {
+        let txn = await Mina.transaction({feePayer}, () => {
           console.log('inside transaction');
           contract.init();
         });
@@ -33,7 +33,7 @@ function App() {
       await createTransaction(contract)
         
       try{
-
+      contract.update()
       console.log(contract);
       console.log("after contract");
       console.log(contract.num)
