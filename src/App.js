@@ -6,11 +6,11 @@ function App() {
     (async()=>{
       await isReady
       console.log("inside async");
-      let {account,error} = await fetchAccount({ publicKey: PublicKey.fromBase58('B62qkz3eEeD5XHDEMLubSo4YQ6Xejs6tnh6sx3CYtGCXEEA1DaNc4cq')})
+      let {account,error} = await fetchAccount({ publicKey: PublicKey.fromBase58('B62qoD7GZfMURQSpEF98HBTCuuchzgiw43dNsZXanMg8w6AYKLCuVfc')})
       console.log(account);
       await SimpleZkapp_.compile()
       try{
-        const contract = new SimpleZkapp_(PublicKey.fromBase58('B62qkz3eEeD5XHDEMLubSo4YQ6Xejs6tnh6sx3CYtGCXEEA1DaNc4cq'))
+        const contract = new SimpleZkapp_(PublicKey.fromBase58('B62qoD7GZfMURQSpEF98HBTCuuchzgiw43dNsZXanMg8w6AYKLCuVfc'))
       let val = contract.value.get()
       console.log(`Found deployed zkapp, with state ${val.toBase58()}`);
       }catch(error){
