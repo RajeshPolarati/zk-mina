@@ -24,6 +24,7 @@ function App() {
       //contract.init()
       console.log(contract);
       console.log("after contract");
+        console.log(contract.num)
       let val = contract.num.get()
       console.log("val",val);
       console.log(`Found deployed zkapp, with state ${val.toBase58()}`);
