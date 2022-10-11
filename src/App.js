@@ -18,7 +18,7 @@ function App() {
       await Add.compile()
       // await SimpleZkapp_.compile()
       try{
-      const contract = new Add(Field(40))
+      const contract = new Add(zkAppAddress)
       let val = contract.num.get()
       console.log("val",val);
       console.log(`Found deployed zkapp, with state ${val.toBase58()}`);
