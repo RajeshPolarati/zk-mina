@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { fetchAccount, isReady, Mina, PublicKey, setGraphqlEndpoint } from "snarkyjs";
+import { fetchAccount, Field, isReady, Mina, PublicKey, setGraphqlEndpoint } from "snarkyjs";
 import { SimpleZkapp_ } from "zkapp-snarkyjs";
 import { Add } from "zkproject";
 
@@ -18,7 +18,7 @@ function App() {
       await Add.compile()
       // await SimpleZkapp_.compile()
       try{
-      const contract = new Add()
+      const contract = new Add(Field(40))
       let val = contract.num.get()
       console.log("val",val);
       console.log(`Found deployed zkapp, with state ${val.toBase58()}`);
@@ -30,7 +30,7 @@ function App() {
   },[])
   return (
     <div className="App">
-      <h1>React app hello</h1>
+      <h1>React app helo</h1>
     </div>
   );
 }
