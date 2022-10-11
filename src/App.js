@@ -24,6 +24,11 @@ function App() {
       //contract.init()
       console.log(contract);
       console.log("after contract");
+        let feePayer = PrivateKey.fromBase58('EKEeaxiDz6utkQBKApPXLd6z3XsY9Nz1kgygKLcDVb9tN4HbY89U')
+        let txn = await Mina.transaction(feePayer, () => {
+          contract.init();
+        });
+        await txn.send()
         console.log(contract.num)
 
       let val = contract.num.get()
