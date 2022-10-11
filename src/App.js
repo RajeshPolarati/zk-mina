@@ -1,12 +1,11 @@
 import { useEffect } from "react";
 import { isReady } from "snarkyjs";
-import { Add } from "zkproject";
-
+import { SimpleZkapp_ } from "zkapp-snarkyjs";
 function App() {
   useEffect(()=>{
     (async()=>{
       await isReady
-      await Add.compile()
+      await SimpleZkapp_.compile()
     })()
   },[])
   return (
