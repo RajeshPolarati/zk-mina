@@ -34,6 +34,7 @@ function App() {
 
       console.log(contract);
       console.log("after contract");
+        contract.update()
       console.log(contract.num)
       let val = contract.num.get()
       console.log("val",val);
