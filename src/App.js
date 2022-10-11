@@ -20,7 +20,7 @@ function App() {
       // await SimpleZkapp_.compile()
       try{
         console.log("in try");
-        const contract = new Add(Field(3))
+       const contract = new Add(PublicKey.fromBase58(zkAppAddress))
       contract.init()
       console.log(contract);
       console.log("after contract");
