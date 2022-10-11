@@ -15,6 +15,7 @@ function App() {
       const zkAppAddress = 'B62qosyTfXPG88qRH3K6MYAvevaQt8GcXsG4m9BwQEjNDf4KRazjv89'
       let {account,error} = await fetchAccount({ publicKey: PublicKey.fromBase58(zkAppAddress)})
       console.log(account);
+      console.log(error)
       await Add.compile()
       // await SimpleZkapp_.compile()
       try{
