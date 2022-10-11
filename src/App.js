@@ -28,7 +28,7 @@ function App() {
 
       let val = contract.num.get()
       console.log("val",val);
-      console.log(`Found deployed zkapp, with state ${val.toBase58()}`);
+      console.log(`Found deployed zkapp, with state ${val.toBigInt()}`);
       }catch(error){
         console.log(error);
       }
