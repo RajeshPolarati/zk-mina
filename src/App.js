@@ -12,10 +12,11 @@ function App() {
   }
   const createTransaction = async(contract) =>{
     let feePayer = PrivateKey.fromBase58('EKEeaxiDz6utkQBKApPXLd6z3XsY9Nz1kgygKLcDVb9tN4HbY89U')
-        let txn = await Mina.transaction(feePayer, () => {
+        let txn = await Mina.transaction({feePayer,fee:"0.1"}, () => {
           console.log('inside transaction');
           contract.init();
         });
+        await txn.send()
   }
   useEffect(()=>{
     (async()=>{
@@ -34,7 +35,6 @@ function App() {
 
       console.log(contract);
       console.log("after contract");
-        contract.update()
       console.log(contract.num)
       let val = contract.num.get()
       console.log("val",val);
@@ -47,7 +47,7 @@ function App() {
   },[])
   return (
     <div className="App">
-      <h1>React app hell0o</h1>
+      <h1>React app hello</h1>
     </div>
   );
 }
