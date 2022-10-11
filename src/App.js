@@ -28,7 +28,6 @@ function App() {
         let txn = await Mina.transaction(feePayer, () => {
           contract.init();
         });
-        await txn.send()
         console.log(contract.num)
 
       let val = contract.num.get()
