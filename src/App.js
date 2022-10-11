@@ -1,8 +1,11 @@
 import { useEffect } from "react";
+import { isReady } from "snarkyjs";
 import { Add } from "zkproject";
+
 function App() {
   useEffect(()=>{
     (async()=>{
+      await isReady
       await Add.compile()
     })()
   },[])
