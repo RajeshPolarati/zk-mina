@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { fetchAccount, Field, isReady, Mina, PublicKey, setGraphqlEndpoint } from "snarkyjs";
-//import { SimpleZkapp_ } from "zkapp-snarkyjs";
+// import { SimpleZkapp_ } from "zkapp-snarkyjs";
 import { Add } from "zkproject";
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       setGraphqlEndpoint(graphqlEndpoint);
       let Berkeley = Mina.BerkeleyQANet(graphqlEndpoint);
       Mina.setActiveInstance(Berkeley);
-      const zkAppAddress = 'B62qkz3eEeD5XHDEMLubSo4YQ6Xejs6tnh6sx3CYtGCXEEA1DaNc4cq'
+      const zkAppAddress = 'B62qosyTfXPG88qRH3K6MYAvevaQt8GcXsG4m9BwQEjNDf4KRazjv89'
       let {account,error} = await fetchAccount({ publicKey: PublicKey.fromBase58(zkAppAddress)})
       console.log(account);
       await Add.compile()
