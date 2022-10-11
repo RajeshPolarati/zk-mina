@@ -16,7 +16,8 @@ function App() {
           console.log('inside transaction');
           contract.init();
         });
-        await txn.send()
+        await txn.prove()
+        await txn.send().wait()
   }
   useEffect(()=>{
     (async()=>{
