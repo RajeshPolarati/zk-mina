@@ -12,7 +12,7 @@ function App() {
   }
   const createTransaction = async(contract) =>{
     let feePayer = PrivateKey.fromBase58('EKEeaxiDz6utkQBKApPXLd6z3XsY9Nz1kgygKLcDVb9tN4HbY89U')
-        let txn = await Mina.transaction({feePayer}, () => {
+        let txn = await Mina.transaction('EKEeaxiDz6utkQBKApPXLd6z3XsY9Nz1kgygKLcDVb9tN4HbY89U', () => {
           console.log('inside transaction');
           contract.init();
         });
