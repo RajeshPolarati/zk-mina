@@ -21,14 +21,14 @@ function App() {
       try{
         console.log("in try");
        const contract = new Add(PublicKey.fromBase58(zkAppAddress))
-      contract.init()
+      //contract.init()
       console.log(contract);
       console.log("after contract");
         console.log(contract.num)
 
       let val = contract.num.get()
       console.log("val",val);
-      console.log(`Found deployed zkapp, with state ${val.value.toBase58()}`);
+      console.log(`Found deployed zkapp, with state ${val.toBase58()}`);
       }catch(error){
         console.log(error);
       }
