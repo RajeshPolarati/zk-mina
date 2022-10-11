@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { fetchAccount, Field, isReady, Mina, PublicKey, setGraphqlEndpoint } from "snarkyjs";
-import { SimpleZkapp_ } from "zkapp-snarkyjs";
+//import { SimpleZkapp_ } from "zkapp-snarkyjs";
 import { Add } from "zkproject";
 
 function App() {
@@ -20,6 +20,7 @@ function App() {
       try{
         console.log("in try");
       const contract = new Add(zkAppAddress)
+      contract.init()
       console.log(contract);
       console.log("after contract");
       let val = contract.num.get()
