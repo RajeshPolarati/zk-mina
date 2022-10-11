@@ -20,7 +20,7 @@ function App() {
       try{
         console.log("in try");
       const contract = new Add(zkAppAddress)
-      contract.init()
+      //contract.init()
       console.log(contract);
       console.log("after contract");
       let val = contract.num.get()
@@ -34,7 +34,7 @@ function App() {
   },[])
   return (
     <div className="App">
-      <h1>React app helo</h1>
+      <h1>React app hello</h1>
     </div>
   );
 }
