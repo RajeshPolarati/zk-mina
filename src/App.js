@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { fetchAccount, Field, isReady, Mina, PublicKey, setGraphqlEndpoint } from "snarkyjs";
+import { fetchAccount, Field, isReady, Mina, PublicKey, setGraphqlEndpoint,PrivateKey } from "snarkyjs";
 // import { SimpleZkapp_ } from "zkapp-snarkyjs";
 import { Add } from "zkproject";
 
