@@ -11,15 +11,14 @@ function App() {
     Mina.setActiveInstance(Berkeley);
     console.log("Connected to MINA");
   }
-  // const createTransaction = async(contract) =>{
-  //   let feePayerKey = PrivateKey.fromBase58('EKEeaxiDz6utkQBKApPXLd6z3XsY9Nz1kgygKLcDVb9tN4HbY89U')
-  //       let txn = await Mina.transaction({feePayerKey,fee: "300_000_000"}, () => {
-  //         console.log('inside transaction');
-  //         contract.init();
-  //       });
-  //       await txn.prove()
-  //       await txn.send().wait()
-  // }
+  const createTransaction = async(contract) =>{
+    let feePayerKey = PrivateKey.fromBase58('EKF2FcWzLgCSAEoB3YQzYq8686Edf5DKzF9k5dddj3Fyzruat88n')
+        let txn = await Mina.transaction({feePayerKey,fee: "300_000_000"}, () => {
+          contract.giveAnswer(PublicKey.fromBase58('B62qosyTfXPG88qRH3K6MYAvevaQt8GcXsG4m9BwQEjNDf4KRazjv89'))
+        });
+        await txn.prove()
+        await txn.send().wait()
+  }
   useEffect(()=>{
     (async()=>{
       await initalize();
@@ -30,7 +29,7 @@ function App() {
       console.log(JSON.stringify(account, null, 2));
       await Add.compile()
       const contract = new Add(PublicKey.fromBase58(zkAppAddress))
-        
+      await createTransaction(contract)
       try{
         console.log("Fetching state value with variable name 'key' : ")
       let val = contract.key.get()
