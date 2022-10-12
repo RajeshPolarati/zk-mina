@@ -32,8 +32,9 @@ function App() {
       const contract = new Add(PublicKey.fromBase58(zkAppAddress))
         
       try{
+        console.log("Fetching state value with variable name 'key' : ")
       let val = contract.key.get()
-      console.log(`Found deployed zkapp, with state ${val.toBase58()}`);
+      console.log(`key : ${val.toBase58()}`);
       }catch(error){
         console.log(error);
       }
