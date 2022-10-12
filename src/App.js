@@ -29,7 +29,7 @@ function App() {
       console.log(JSON.stringify(account, null, 2));
       await Add.compile()
       const contract = new Add(PublicKey.fromBase58(zkAppAddress))
-      await createTransaction(contract)
+      //await createTransaction(contract)
       try{
         console.log("Fetching state value with variable name 'key' : ")
       let val = contract.key.get()
