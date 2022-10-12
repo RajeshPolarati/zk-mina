@@ -13,7 +13,7 @@ function App() {
   }
   const createTransaction = async(contract) =>{
     let feePayerKey = PrivateKey.fromBase58('EKF2FcWzLgCSAEoB3YQzYq8686Edf5DKzF9k5dddj3Fyzruat88n')
-        let txn = await Mina.transaction({feePayerKey,fee: "300_000_000"}, () => {
+        let txn = await Mina.transaction({feePayerKey,fee: "100000000"}, () => {
           contract.giveAnswer(PublicKey.fromBase58('B62qosyTfXPG88qRH3K6MYAvevaQt8GcXsG4m9BwQEjNDf4KRazjv89'))
         });
         await txn.prove()
