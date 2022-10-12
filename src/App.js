@@ -27,7 +27,7 @@ function App() {
       console.log("Fetching account details");
       let {account,error} = await fetchAccount({ publicKey: PublicKey.fromBase58(zkAppAddress)})
       console.log("Account details : ");
-      console.log(account);
+      console.log(JSON.stringify(account, null, 2));
       await Add.compile()
       const contract = new Add(PublicKey.fromBase58(zkAppAddress))
         
